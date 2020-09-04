@@ -14,7 +14,7 @@ print('The Pomodoro Technique is a time management method developed by Francesco
 print('\nHere\'s how it works: During each Pomodoro, you will have 25 minutes to work hard. After each Pomodoro, you get a 5 minute break. After every 4th Pomodoro, you get a 10 minute break.')
 print('\nTo quit the program, simply hit CTRL+C and the timer will stop.')
 print('\nMade with love by Andrew Lin. Want to provide feedback? DM me on Discord: andrwx#1010')
-print('\nv1.1.1, build date 09/03/2020')
+print('\nv1.1.2-beta, build date 09/03/2020')
 
 # start session?
 try:
@@ -35,7 +35,7 @@ start_time = time.time()
 print('Happy studying!')
 
 # discord rpc
-client_id = "751188379013480559"
+client_id = "751481744791961683"
 RPC = Presence(client_id)
 RPC.connect()
 
@@ -59,21 +59,22 @@ def countdown(t):
 # define presence 
 def prGen(type, image, t):
     lol = time.time() + t + 1
-    RPC.update(details='Study interval #{}'.format(count), state=type, large_image=image, large_text="made by andrwx#1010", end=lol)
+    print("prGen called")
+    RPC.update(details='EPOCH start {}'.format(time.time()), state='EPOCH end {}'.format(str(lol)), end=lol)
 
 # pomodoro timer
 try:
     while True:
         study = 1500
         print('Interval {}'.format(count))
-        prGen("Currently studying", "pencil_and_paper", study)
+        prGen("Currently studying", "ph_study", study)
         countdown(int(study))
 
         if count % 4 != 0:
             rest = 300
         else: 
             rest = 600
-        prGen("Taking a break", "boba", rest)
+        prGen("Taking a break", "ph_break", rest)
         countdown(int(rest))
 
         count += 1
