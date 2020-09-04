@@ -14,7 +14,7 @@ print('The Pomodoro Technique is a time management method developed by Francesco
 print('\nHere\'s how it works: During each Pomodoro, you will have 25 minutes to work hard. After each Pomodoro, you get a 5 minute break. After every 4th Pomodoro, you get a 10 minute break.')
 print('\nTo quit the program, simply hit CTRL+C and the timer will stop.')
 print('\nMade with love by Andrew Lin. Want to provide feedback? DM me on Discord: andrwx#1010')
-print('\nv1.1.1, build date 09/03/2020')
+print('\nv1.1.3, build date 09/03/2020')
 
 # start session?
 try:
