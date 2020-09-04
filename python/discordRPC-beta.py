@@ -60,7 +60,7 @@ def countdown(t):
 def prGen(type, image, t):
     lol = time.time() + t + 1
     print("prGen called")
-    RPC.update(details='EPOCH start {}'.format(time.time()), state='EPOCH end {}'.format(str(lol)), end=lol)
+    RPC.update(details='EPOCH start {}'.format(str(time.time())), state='EPOCH end {}'.format(str(lol)), end=lol)
 
 # pomodoro timer
 try:
