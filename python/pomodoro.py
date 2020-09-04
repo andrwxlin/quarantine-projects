@@ -85,3 +85,4 @@ except KeyboardInterrupt:
     print('Total session time: {:02d}m:{:02d}s'.format(mins, secs))
     print('Total number of completed intervals: {}'.format(count - 1))
     RPC.close()
+    time.sleep(5)
