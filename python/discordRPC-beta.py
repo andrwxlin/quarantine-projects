@@ -50,7 +50,7 @@ def countdown(t):
         timer = '{:02d}:{:02d}'.format(mins, secs)
         print(timer, end="\r")
         time_difference -= 1
-        time.sleep(1)
+        time.sleep(.9999)
     if t == study:
         print('Start of break time')
     else:
