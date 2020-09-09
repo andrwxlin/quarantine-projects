@@ -9,7 +9,10 @@ RPC = Presence(client_id)
 RPC.connect()
 
 try:
-    RPC.update(details='In a meeting', state=asdf, large_image="zoom", start=time.time())
+    start_time = time.time()
+    while True:
+        RPC.update(details='In a meeting', state=asdf, large_image="zoom", start=start_time)
+        time.sleep(60)
 except KeyboardInterrupt:
     print("class ended")
     RPC.close()
