@@ -3,8 +3,10 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import json
 import pandas as pd
 from re import search
+import os.path
+from os import path
 
-with open('./credentials.json') as f:
+with open('../secret/credentials.json') as f:
     data = json.load(f)
 
 cid = data['spotify_cid']
@@ -28,14 +30,9 @@ def show_tracks(tracks):
         else:
             None
 
-def getlist(dict):
-    return dict.keys()
-
 pID = input("Spotify playlist ID: ")
 
 result = spotify.playlist(pID, fields="tracks,albums,next")
-
-#print(getlist(result))
 
 tracks = result["tracks"]
 
@@ -47,5 +44,17 @@ while tracks['next']:
 df = pd.DataFrame({'track_name': track_name, 'artist_name': artist_name})
 
 print(df)
-csv = df.to_csv('Tracks.csv', index = True)
+
+path = input("Specify the path to save the .csv file to. If empty, will save to current folder. ")
+fileName = input("Specify the file name. If left empty, file will be named Tracks.csv. ")
+if path == "":
+    if fileName == "":
+        csv = df.to_csv('Tracks.csv', index = True)
+    else:
+        csv = df.to_csv(fileName, index=True)
+elif path != "":
+    if fileName == "":
+        csv = df.to_csv(rf'{path}Tracks.csv', index = True)
+    else:
+        csv = df.to_csv(rf'{path}{fileName}.csv', index = True)
 print(csv)
