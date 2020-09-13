@@ -139,3 +139,4 @@ cython_debug/
 
 # personal files
 python/credentials.json
+secret/
